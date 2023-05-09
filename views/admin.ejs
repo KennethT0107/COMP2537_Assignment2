@@ -1,0 +1,32 @@
+<%- include("templates/header") %>
+  <div class="wrapper">
+    <h1>Account: <%= curr._id %></h1>
+    <h2>Name: <%= curr.username %></h2>
+    <h3>Rank: <%= curr.rank.toUpperCase() %></h3>
+    <div <% if (!__restrictOption) { %>
+      style="display: none"
+      <% } %>>
+      <h1>You are not authorized!</h1>
+      <p>Please redirect to the main page!</p>
+    </div>
+    <div <% if (__restrictOption) { %>
+      style="display: none"
+            <% } %>>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Users</th>
+          <th scope="col">Rank</th>
+        </tr>
+        </thead>
+        <% let i = 0; %>
+        <% for (i = 0; i < users.length; i++) { %>
+          <% if (users[i].username !== curr.username) { %>
+            <%- include("templates/user", {user: users[i]}) %>
+          <% } %>
+        <% } %>
+      </table>
+    </div>
+  </div>
+<%- include("templates/footer") %>
+

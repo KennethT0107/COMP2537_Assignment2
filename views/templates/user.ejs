@@ -1,0 +1,18 @@
+<tr>
+        <td><%= user.username %><br><i>(<%= user._id %>)</i></td>
+        <td><%= user.rank %></td>
+        <td>
+            <button class="btn btn-success"
+                <% if (user.rank === "admin") {%>
+                    style="display: none"
+                <% } %>
+                    onclick="window.location.href='/admin/promote/<%= user._id%>'">Promote to Admin</button>
+        </td>
+        <td>
+            <button class="btn btn-danger"
+                <% if (user.rank === "user") {%>
+                    style="display: none"
+                <% } %>
+                    onclick="window.location.href='/admin/demote/<%= user._id%>'">Demote to User</button>
+        </td>
+</tr>

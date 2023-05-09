@@ -1,0 +1,42 @@
+<%- include("templates/header") %>
+<main>
+    <div class="blur-bg"></div> <!-- New element for blurred background -->
+    <div class="form-signin w-100 m-auto"> <!-- Original contents of main -->
+        <form method="post" action="/logging-in">
+<!--            <image xlink: href="/img/icons8-confectionery-96.png" style="width: 40px; height: 32px"/>-->
+            <img class="mb-4" src="/img/catLoginPage.jpg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <p class="error">
+                <% if (error === 1) { %>
+                    Error: Invalid Username!
+                <% } else if (error === 2) { %>
+                    Error: Incorrect Password!
+                <% } %>
+            </p>
+            <div class="form-floating">
+                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+<!--            <div class="checkbox mb-3">-->
+<!--                <label>-->
+<!--                    <input type="checkbox" value="remember-me"> Remember me-->
+<!--                </label>-->
+<!--            </div>-->
+            <div class="d-flex gap-2 justify-content-center py-5">
+                <button class="btn btn-primary d-inline-flex align-items-center" type="submit">
+                    Log In
+                </button>
+            </div>
+            <div>
+                <p class="authButtons" id="signUp">Don't have an account?</p>
+            </div>
+            <p class="mt-5 mb-3 text-body-secondary">© 2023</p>
+        </form>
+    </div>
+</main>
+<script src="/js/login.js"></script>
+<%- include("templates/footer") %>
